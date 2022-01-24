@@ -6,7 +6,7 @@ import re
 from notion2md import console
 
 def internal_downloader(url:str) -> str:
-    filename = re.search("[.\-\w]+(?=\?)",url).group(0)
+    filename = os.path.basename(urlparse(url).path)
     downlaoder(url,filename)
     return filename
 
